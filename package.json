@@ -1,15 +1,27 @@
 {
-  "name": "eriklueh-app-template",
-  "version": "0.1.0",
-  "private": true,
+  "name": "create-eriklueh-app",
+  "version": "0.1.8",
+  "description": "Create a new project with eriklueh-app-template",
+  "private": false,
   "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "create-eriklueh-app": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "template"
+  ],
   "scripts": {
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "build:cli": "tsc -p tsconfig.cli.json",
+    "prepublishOnly": "npm run build:cli"
   },
   "dependencies": {
+    "fs-extra": "^10.0.0",
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
@@ -64,6 +76,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
     "@types/eslint": "^8.56.10",
     "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
