@@ -1,13 +1,19 @@
 {
-  "name": "eriklueh-app-template",
-  "version": "0.1.0",
+  "name": "create-eriklueh-app",
+  "version": "0.1.4",
   "private": true,
   "type": "module",
+  "main": "dist/index.ts",
+  "bin": {
+    "create-eriklueh-app": "/index.ts"
+  },
   "scripts": {
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "build:cli": "tsc",
+    "prepublishOnly": "npm run build:cli"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
